@@ -1,14 +1,96 @@
 import streamlit as st
-import pickle as pk
-import numpy as np
 import pandas as pd
+import numpy as np
+import pickle as pk
 from skopt import gp_minimize
 from skopt.space import Real
 
 class App:
+    def __init__(self):
 
-    def __init__(self) -> None:
-        pass
+        self.modelo = self.carrega_modelo()
+
+        self.flag_otm = False
+
+        st.markdown('# Aplicação de Predição de Risco')
+        st.markdown('## Sobre os dados solicitados')
+        st.markdown("""Os dados solicitados estão de acordo com o data set que foi utilizado durante o projeto. Portanto, para mais informações basta acessar 
+                       a Análise Explorátória feita no projeto (clique [aqui](https://github.com/ViniPilan/risk-prediction/blob/master/Notebooks/AED.ipynb)).""")
+        st.markdown('Aplicação para teste do modelo preditivo desenvolvido. Clique [aqui](https://github.com/ViniPilan/risk-prediction) para acesso ao projeto completo.')
+        st.markdown('## Como usar a aplicação')
+        st.markdown("Para cálculo de risco do cliente ser devedor, basta preencher os dados abaixo e clicar no botão 'Calcular risco'.")
+        st.markdown("Para gerar os melhores parâmetros que diminuam o risco, clique em 'Otimizar parâmetros' após já ter inserido os dados e feito o cálculo do risco.")
+        st.markdown('')
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            slider_idade = st.slider('Idade', 18, 100)
+            slider_nivel_edu = st.slider('Nível de educação', 0, 5)
+            slider_exp_trab = st.slider('Experiência de Trabalho', 0, 33)
+            slider_endereco = st.slider('Endereço do cliente', 0, 34)
+            
+        
+        with col2:
+            input_salario = st.number_input('Salário anual')
+            input_deb_sal = st.number_input('Relação débito e salário anual do cliente')
+            input_cred_deb = st.number_input('Relação crédito e débito do cliente')
+            input_outros_deb = st.number_input('Outros débitos')
+
+
+        col3, col4 = st.columns(2)
+
+        with col3:
+            self.dataframe = pd.DataFrame({'age':[int(slider_idade)],
+                                'ed':[int(slider_nivel_edu)],
+                                'employ':[int(slider_exp_trab)],
+                                'address':[int(slider_endereco)],
+                                'income':[round(input_salario)//1000],
+                                'debtinc':[float(input_deb_sal)],
+                                'creddebt':[float(input_cred_deb)],
+                                'othdebt':[float(input_outros_deb)]})
+            
+            botao_calcular = st.button('Calcular risco')
+
+            if botao_calcular:
+                self.flag_otm = True
+                st.dataframe(self.tratamento(self.dataframe))
+                st.write(f'Probabilidade de devedor: {round(self.modelo.predict_proba(self.tratamento(self.dataframe))[:,1][0]*100, 2)}%')
+
+        with col4:
+            botao_otimizar = st.button('Otimizar parâmetros')
+
+            if botao_otimizar:
+                st.write('O resultado aparecerá logo abaixo assim que a otimização terminar (pode levar um tempo):')
+                space = [Real(1, 3, name='debtinc'),
+                            Real(0.2, 1, name='creddebt'),
+                            Real(0.2, 1, name='othdebt')]
+                teste = gp_minimize(self.proba_func, space, random_state=7)
+
+                deb = teste.x[0]
+                cred = teste.x[1]
+                outros_deb = teste.x[2]
+
+                if deb == 0:
+                    deb = 'Mínimo possível'
+
+                if cred == 0:
+                    cred = 'Mínimo possível'
+
+                if outros_deb == 0:
+                    outros_deb = 'Mínimo possível'
+
+                st.write("Melhores parâmetros: \n- debtinc={} \n- creddebt={} \n- othdebt={}".format(deb, cred, outros_deb))
+                
+               
+
+        
+
+    def carrega_modelo(self):
+        arq = open('../Modelos/modelo_classificacao_default.pk', 'rb')
+        modelo = pk.load(arq)
+        return modelo
+
     def tratamento(self, dataframe_original):
         dataframe = dataframe_original.copy()
 
@@ -41,67 +123,13 @@ class App:
 
         return dataframe
 
-
-    def carrega_modelo(self):
-        arq = open('../Modelos/modelo_classificacao_default.pk', 'rb')
-        modelo = pk.load(arq)
-        return modelo
-
     def proba_func(self, lista):
-        modelo = self.carrega_modelo()
-        dataframe = self.dataframe
-        dataframe['debtinc'] = [lista[0]]
-        dataframe['creddebt'] = [lista[1]]
-        dataframe['othdebt'] = [lista[2]]
         
-        return modelo.predict_proba(dataframe)[:,1][0]
-
-    def atualiza_df(self, dataframe):
-        self.dataframe = self.tratamento(dataframe)
-
+        self.dataframe['debtinc'] = [lista[0]]
+        self.dataframe['creddebt'] = [lista[1]]
+        self.dataframe['othdebt'] = [lista[2]]
+        
+        return self.modelo.predict_proba(self.dataframe)[:,1][0]
 
 if __name__ == '__main__':
-    app = App()
-    flag_otm = False
-    modelo = app.carrega_modelo()
-
-    st.markdown('# Aplicação')
-    st.markdown('Aplicação para teste do modelo preditivo desenvolvido. Clique [aqui](https://github.com/ViniPilan/risk-prediction) para acesso ao projeto completo.')
-    st.markdown('## Como usar a aplicação')
-    st.markdown("Basta preencher os dados abaixo e clicar no botão 'calcular'. Após este processo, o resultado aparecerá logo abaixo juntamente com um campo para debug.")
-    st.markdown('')
-
-    dataframe = pd.DataFrame({'age':[int(st.slider('Idade', 0, 100))],
-                              'ed':[int(st.slider('Nível de educação', 1, 5))],
-                              'employ':[int(st.slider('Experiência de Trabalho', 0, 33))],
-                              'address':[int(st.slider('Endereço do cliente', 0, 34))],
-                              'income':[round(st.number_input('Salário anual (U$ - Dólar)'))//1000],
-                              'debtinc':[float(st.number_input('Relação débito e salário do cliente'))],
-                              'creddebt':[float(st.number_input('Relação crédito e débito do cliente'))],
-                              'othdebt':[float(st.number_input('Outros débitos'))]})
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if st.button('Calcular'):
-            flag_otm = True  
-            app.atualiza_df(dataframe)
-            
-
-    with col2:    
-        botao_otm = st.button('Otimizar')
-        if botao_otm and flag_otm:
-            st.write('Calculando melhores parâmetros... Aguarde')
-            space = [Real(0, 3, name='debtinc'),
-                    Real(0, 1, name='creddebt'),
-                    Real(0, 1, name='othdebt')]
-
-            teste = gp_minimize(app.proba_func, space, random_state=7)
-
-            st.write("Best parameters: \n- debtinc=%.2f \n- creddebt=%.2f \n- othdebt=%.2f" % (teste.x[0], teste.x[1], teste.x[2]))
-
-        if botao_otm and flag_otm == False:
-            st.write('Digite os dados e os classifique antes de fazer a otimização!')
-        # FALTA ARRUMAR AS CLASSIFICAÇÕES
-    
-  
+    App()

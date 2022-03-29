@@ -68,6 +68,15 @@ Pasta que contém os arquivos referentes a aplicação do modelo. Vale ressaltar
 - sklearn
 - skopt
 
+## Como executar a aplicação
+Para executar a aplicação, basta acessar o arquivo "/App/app.py" no terminal e digitar o comando:
+
+"""
+streamlit run app.py
+"""
+
+Vale ressaltar é necessário ter todas as bibliotecas utilizadas instaladas. O python utilizado no desenvolvimento foi a versão 3.9 e o sistema operacional foi o Ubuntu 18.04.4 LTS.
+
 ## Sobre o autor do projeto
 Me chamo Vinícius de Paula Pilan, sou estudante de Ciência da Computação na Universidade Estadual Paulista - Júlio de Mesquita Filho - UNESP e tenho muito interesse em me profissionalizar na área de Ciência de Dados. Atualmente, busco aprender cada vez mais sobre o assunto e esse projeto foi um meio de adquirir ainda mais conhecimento nessa área.
 
