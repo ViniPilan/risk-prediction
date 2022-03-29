@@ -1,8 +1,5 @@
 # Projeto de Data Science - Predição de risco de crédito 
 
-![image](Imagens/intro_img.jpg)
-
-
 ## Objetivo
 O objetivo deste projeto é de desenvolver um meio de reduzir o número de dívidas não pagas, que geram prejuízo à empresas de crédito:
 
@@ -16,6 +13,7 @@ Foi criada uma aplicação capaz de, ao receber certos dados de determinado indi
 
 Portanto, a aplicação feita **estima a chance (probabilidade) de determinado cliente ser devedor** e também fornece sugestões de valores que, ao serem atribuídos para o indivíduo, podem **diminuir sua respectiva probabilidade de ser devedor**.
 
+![image](Imagens/intro_img.jpg)
 
 ## Desenvolvimento do projeto
 Abaixo, tem-se um resumo de cada pasta do projeto e seu conteúdo:
