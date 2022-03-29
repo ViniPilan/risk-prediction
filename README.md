@@ -75,7 +75,9 @@ Para executar a aplicação, basta acessar o arquivo "/App/app.py" no terminal e
 streamlit run app.py
 ```
 
-Vale ressaltar é necessário ter todas as bibliotecas utilizadas instaladas. O python utilizado no desenvolvimento foi a versão 3.9 e o sistema operacional foi o Ubuntu 18.04.4 LTS.
+Vale ressaltar que é necessário ter todas as bibliotecas utilizadas aqui já instaladas antes da execução do comando acima. 
+
+O python utilizado no desenvolvimento foi a versão 3.9 e o sistema operacional foi o Ubuntu 18.04.4 LTS.
 
 ## Sobre o autor do projeto
 Me chamo Vinícius de Paula Pilan, sou estudante de Ciência da Computação na Universidade Estadual Paulista - Júlio de Mesquita Filho - UNESP e tenho muito interesse em me profissionalizar na área de Ciência de Dados. Atualmente, busco aprender cada vez mais sobre o assunto e esse projeto foi um meio de adquirir ainda mais conhecimento nessa área.
