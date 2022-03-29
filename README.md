@@ -1,6 +1,6 @@
 # Projeto de Data Science - Predição de risco de crédito 
 
-[image](Imagens/intro_img.jpg)
+![image](Imagens/intro_img.jpg)
 
 
 ## Objetivo
