@@ -5,7 +5,7 @@ O objetivo deste projeto é de desenvolver um meio de reduzir o número de dívi
 
 - Construir uma maneira de **classificar se existe risco ou não para cada cliente** com base em suas características, sendo que o risco se dá pela classificação do indivíduo em dois grupos: devedores e não devedores. 
 
-- Desenvolver algum meio de reduzir a chance de risco para cada cliente, com intuito de evitar o prejuízo com dívidas não pagas. 
+- Desenvolver algum meio de **reduzir a chance de risco para cada cliente**, otimizando alguns de seus parâmetros (como crédito fornecido a ele pela empresa, por exemplo). 
 
 ![image0](Imagens/intro_img.jpg)
 
