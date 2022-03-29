@@ -71,9 +71,9 @@ Pasta que contém os arquivos referentes a aplicação do modelo. Vale ressaltar
 ## Como executar a aplicação
 Para executar a aplicação, basta acessar o arquivo "/App/app.py" no terminal e digitar o comando:
 
-"""
+```
 streamlit run app.py
-"""
+```
 
 Vale ressaltar é necessário ter todas as bibliotecas utilizadas instaladas. O python utilizado no desenvolvimento foi a versão 3.9 e o sistema operacional foi o Ubuntu 18.04.4 LTS.
 
