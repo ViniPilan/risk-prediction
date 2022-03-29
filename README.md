@@ -7,13 +7,14 @@ O objetivo deste projeto é de desenvolver um meio de reduzir o número de dívi
 
 - Desenvolver algum meio de reduzir a chance de risco para cada cliente, com intuito de evitar o prejuízo com dívidas não pagas. 
 
+![image0](Imagens/intro_img.jpg)
 
 ## Resultado
 Foi criada uma aplicação capaz de, ao receber certos dados de determinado indivíduo, **gerar uma probabilidade do mesmo ser um cliente devedor**. Ademais, foi também implementada nessa tal aplicação a função de **otimização de parâmetros**, a qual fornece possíveis valores para alguns parâmetros que irão resultar em uma menor chance do cliente ser um devedor.
 
 Portanto, a aplicação feita **estima a chance (probabilidade) de determinado cliente ser devedor** e também fornece sugestões de valores que, ao serem atribuídos para o indivíduo, podem **diminuir sua respectiva probabilidade de ser devedor**.
 
-![image](Imagens/intro_img.jpg)
+![image1](Imagens/app.png)
 
 ## Desenvolvimento do projeto
 Abaixo, tem-se um resumo de cada pasta do projeto e seu conteúdo:
