@@ -58,6 +58,16 @@ Pasta que contém os modelos preditivos desenvolvidos nos notebooks. Nessa prime
 Pasta que contém os arquivos referentes a aplicação do modelo. Vale ressaltar que o app é executado com o streamlit de forma local.
 
 
+## Bibliotecas utilizadas (linguagem Python)
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- streamlit
+- pickle
+- sklearn
+- skopt
+
 ## Sobre o autor do projeto
 Me chamo Vinícius de Paula Pilan, sou estudante de Ciência da Computação na Universidade Estadual Paulista - Júlio de Mesquita Filho - UNESP e tenho muito interesse em me profissionalizar na área de Ciência de Dados. Atualmente, busco aprender cada vez mais sobre o assunto e esse projeto foi um meio de adquirir ainda mais conhecimento nessa área.
 
