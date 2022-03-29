@@ -39,7 +39,7 @@ default | Cliente não pagou suas dívidas anteriormente
 Pasta que contém os notebooks desenvolvidos
 
 #### 2.1 AED - Análise exploratória de dados
-Neste documento, foi feita a análise exploratória do data set disponível em *bankloans.csv*, cuja estrutura foi abordada introdutoriamente no tópico anterior. Diversas informações, técnicas e gerais, foram extraídas e resumidas neste notebook, como também algumas imagens referentes à elas (imagens de gráficos e tabelas - armazenadas na pasta 'Imagens').  
+Neste documento, foi feita a análise exploratória do data set disponível em *bankloans.csv*, cuja estrutura foi abordada introdutoriamente no tópico anterior. Diversas informações, técnicas e gerais, foram extraídas e resumidas neste notebook, como também algumas imagens referentes a elas (imagens de gráficos e tabelas - armazenadas na pasta 'Imagens').  
 
 
 #### 2.2 Modeling
