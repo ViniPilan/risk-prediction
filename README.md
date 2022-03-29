@@ -16,6 +16,9 @@ Portanto, a aplicação feita **estima a chance (probabilidade) de determinado c
 
 ![image1](Imagens/app.png)
 
+Programa em funcionamento
+![image2](Imagens/app_funcionamento.png)
+
 ## Desenvolvimento do projeto
 Abaixo, tem-se um resumo de cada pasta do projeto e seu conteúdo:
 
