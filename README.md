@@ -83,11 +83,14 @@ Vale ressaltar que é necessário ter todas as bibliotecas utilizadas aqui já i
 O python utilizado no desenvolvimento foi a versão 3.9 e o sistema operacional foi o Ubuntu 18.04.4 LTS.
 
 ## Sobre o autor do projeto
-Me chamo Vinícius de Paula Pilan, sou estudante de Ciência da Computação na Universidade Estadual Paulista - Júlio de Mesquita Filho - UNESP e tenho muito interesse em me profissionalizar na área de Ciência de Dados. Atualmente, busco aprender cada vez mais sobre o assunto e esse projeto foi um meio de adquirir ainda mais conhecimento nessa área.
+Me chamo Vinícius, sou fascinado pela ciência de dados e encontrei nessa área uma paixão. Busco aprender constantemente 
+para alcançar autoridade como Cientista de Dados profissional e atingir este que é meu objetivo de carreira.
 
-Agradeço pelo seu interesse nesse trabalho!
+Estudo Ciência da Computação na UNESP Bauru (estou no último ano do curso, tenho horários bastante 
+flexíveis) e venho estudando ciência de dados para conseguir me consolidar no mercado.
 
-**Formas de contato:**
-- **Email:** vinicius.pilan@unesp.br
-- **LinkedIn:** Vinícius de Paula Pilan
-- **GitHub:** ViniPilan
+Já realizei cursos, adquiri certificações e desenvolvi alguns projetos que envolvem e misturam conceitos como Python, análise e visualização de dados, Machine Learning (classificação, regressão, otimização, 
+agrupamento) e SQL.
+
+Tenho um site pessoal que contém mais informações sobre mim, minhas principais certificações e projetos:
+https://sites.google.com/view/vinicius-pilan/
